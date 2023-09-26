@@ -1,10 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import {  Text, View } from 'react-native';
-import { styles } from './globals'
-
+// import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen'
 import { useLoadFonts } from './src/hooks/useload-fonts';
-import { Home } from './src/screens/home';
+import { NavigationApp } from './src/screens/navigation-app';
+import { NavigationContainer } from '@react-navigation/native';
 /**
  * Método que 
  */
@@ -16,10 +14,10 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Home />
-
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer onLayout={onLayoutRootView}>
+      <NavigationApp />
+    </NavigationContainer>
   );
 }
+
+
