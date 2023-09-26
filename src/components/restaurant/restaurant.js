@@ -1,22 +1,32 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { View, SafeAreaView, Image, TextInput, Text } from "react-native";
 import { styles } from ".";
 
 export function Restaurant() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ marginTop: 45 }}>
+      <View style={{ marginTop: 40 }}>
         <TextInput
           style={styles.inputSearch}
           placeholder="Encontre um restaurante"
           inputSearch
         />
+
+        <Ionicons
+          name="md-search"
+          size={32}
+          color="red"
+          style={styles.ionIconSearch}
+        />
+
       </View>
       <Text
         style={{
           width: 340,
-          fontSize: 25,
+          fontSize: 22,
           color: "#333",
           textAlign: "left",
+          fontWeight: 700,
         }}
       >
         Restaurantes

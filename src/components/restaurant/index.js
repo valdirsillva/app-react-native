@@ -6,12 +6,12 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100, 
+    marginBottom: 100,
     gap: 20,
- },
+  },
   parentScrollView: {
-    display: 'flex', 
-    alignItems: 'center', 
+    display: 'flex',
+    alignItems: 'center',
     backgroundColor: '#FFF',
     borderRadius: 20,
     top: 265,
@@ -33,10 +33,10 @@ export const styles = StyleSheet.create({
 
   title: {
     position: 'absolute', // Permite posicionar o texto de forma absoluta dentro do contêiner
-    left: 5, 
-    bottom: 5, 
-    color: 'white', 
-    fontSize: 16, 
+    left: 5,
+    bottom: 5,
+    color: 'white',
+    fontSize: 16,
   },
 
   imageTitle: {
@@ -56,5 +56,11 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: '#666',
     textAlign: 'center',
+  },
+
+  ionIconSearch: {
+    position: 'absolute',
+    top: 20,
+    left: 15,
   },
 });
