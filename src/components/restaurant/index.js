@@ -1,66 +1,48 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const screenWith = Dimensions.get('window').width
 
 export const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 100,
-    gap: 20,
-  },
-  parentScrollView: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 20,
-    top: 265,
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    gap: 30,
-    width: '100%',
-  },
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 80,
+        gap: 10,
+    },
 
-  imageContainer: {
-    // flex: 1,
-    margin: 5,
-    position: 'relative', // Permite posicionar o texto dentro do contêiner da imagem
-  },
+    // parentScrollView: {
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     backgroundColor: '#FFF',
+    //     borderRadius: 20,
+    //     top: 265,
+    // },
 
-  title: {
-    position: 'absolute', // Permite posicionar o texto de forma absoluta dentro do contêiner
-    left: 5,
-    bottom: 5,
-    color: 'white',
-    fontSize: 16,
-  },
+    imageTopo: {
+        width: screenWith,
+        height: 150,
+        resizeMode: 'cover',
+    },
 
-  imageTitle: {
-    width: 160,
-    height: 160,
-    borderRadius: 8,
-  },
+    contentDescription: {
+        width: 320,
+        marginTop: 40,
+    },
 
-  inputSearch: {
-    width: 350,
-    height: 70,
-    marginBottom: 35,
-    borderWidth: 1,
-    borderColor: '#E6E6E6',
-    borderRadius: 8,
-    padding: 10,
-    fontSize: 20,
-    color: '#666',
-    textAlign: 'center',
-  },
+    contentTitle: {
+        fontSize: 18,
+        fontWeight: '700',
+        color: "#333",
+    },
 
-  ionIconSearch: {
-    position: 'absolute',
-    top: 20,
-    left: 15,
-  },
+    contentText: {
+        width: 320,
+        fontSize: 14,
+        fontWeight: '400',
+        color: "#808080",
+        lineHeight: 22,
+    }
+
 });
