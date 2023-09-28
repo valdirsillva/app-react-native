@@ -1,21 +1,42 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const viewHeigth  = Dimensions.get("window").height
 
 export const styles = StyleSheet.create({
   container: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100,
-    gap: 20,
+    gap: 10,
+
+    marginTop: -15,
+    borderWidth: 1,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    borderColor: "white",
+    backgroundColor: "#fff",
+
+    height: viewHeigth,
   },
 
-  parentScrollView: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 20,
-    top: 265,
+  inputSearch: {
+    width: 350,
+    height: 70,
+    marginBottom: 35,
+    borderWidth: 1,
+    borderColor: '#E6E6E6',
+    borderRadius: 8,
+    fontSize: 20,
+    color: '#666',
+    textAlign: 'center',
+    marginTop: -100,
+  },
+
+  ionIconSearch: {
+    position: 'absolute',
+    bottom: 50,
+    left: 15,
   },
 
   content: {
@@ -23,12 +44,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: 30,
+    gap: 20,
     width: '100%',
   },
 
   imageContainer: {
-    // flex: 1,
     margin: 5,
     position: 'relative', // Permite posicionar o texto dentro do contêiner da imagem
   },
@@ -47,22 +67,4 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
 
-  inputSearch: {
-    width: 350,
-    height: 70,
-    marginBottom: 35,
-    borderWidth: 1,
-    borderColor: '#E6E6E6',
-    borderRadius: 8,
-    padding: 10,
-    fontSize: 20,
-    color: '#666',
-    textAlign: 'center',
-  },
-
-  ionIconSearch: {
-    position: 'absolute',
-    top: 20,
-    left: 15,
-  },
 });

@@ -1,23 +1,25 @@
-// import { StatusBar } from 'expo-status-bar';
-import * as SplashScreen from 'expo-splash-screen'
-import { useLoadFonts } from './src/hooks/useload-fonts';
-import { NavigationApp } from './src/screens/navigation-app';
-import { NavigationContainer } from '@react-navigation/native';
-/**
- * Método que 
- */
-SplashScreen.preventAutoHideAsync();
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { Restaurant } from "./src/components/restaurant/restaurant";
+import { Restaurants } from "./src/components/restaurants/restaurants";
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  const { fontsLoaded, onLayoutRootView } = useLoadFonts();
-
-  if (!fontsLoaded) return null;
-
   return (
-    <NavigationContainer onLayout={onLayoutRootView}>
-      <NavigationApp />
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName="Restaurants">
+        <Stack.Screen
+          name="Restaurant"
+          component={Restaurant}
+          options={{ title: "Detalhes do restaurante" }}
+        />
+        <Stack.Screen
+          name="Restaurants"
+          component={Restaurants}
+          options={{ title: "Restaurantes" }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-

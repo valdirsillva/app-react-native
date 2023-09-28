@@ -1,17 +1,63 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { View, SafeAreaView, Image, TextInput, Text, Link, Button, ScrollView } from "react-native";
-import { styles } from ".";
-import { Header } from '../header/header';
-import { useNavigation } from '@react-navigation/native';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import * as SplashScreen from "expo-splash-screen";
+import { useNavigation } from "@react-navigation/native";
+import { useLoadFonts } from "../../hooks/useload-fonts";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  TextInput,
+  Text,
+  ScrollView,
+  SectionList,
+} from "react-native";
+import { Header } from "../header/header";
+import { styles } from "./styles";
+
+SplashScreen.preventAutoHideAsync();
 
 export function Restaurants() {
   const navigation = useNavigation();
+  const { fontsLoaded, onLayoutRootView } = useLoadFonts();
+
+  if (!fontsLoaded) return null;
 
   return (
-    <ScrollView contentContainerStyle={{ display: 'flex', flexDirection: 'column' }}>
-      <SafeAreaView style={styles.container}>
+    <ScrollView
+      contentContainerStyle={{ display: "flex", flexDirection: "column" }}
+    >
+      
         <Header />
-        <View style={{ marginTop: 40, borderRadius: 20 }}>
+      <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
+
+      {/* <View style={{ flex: 1, padding: 70}}>
+         
+        <Text style={{ textAlign: 'center' }}>Resultados para</Text>
+        <Text 
+          style={{
+            fontSize: 30,
+            fontWeight: '700',
+            textAlign: 'center'
+          }}
+        >
+          Divindo fogão
+        </Text>
+
+        <Ionicons
+          name="arrow-back"
+          size={32}
+          color="white"
+          style={{
+            position: "absolute",
+            top: 50,
+            left: 30,
+          }}
+          onPress={() => navigation.navigate("Restaurants")}
+        />
+
+      </View> */}
+
+        <View>
           <TextInput
             style={styles.inputSearch}
             placeholder="Encontre um restaurante"
@@ -24,7 +70,6 @@ export function Restaurants() {
             color="red"
             style={styles.ionIconSearch}
           />
-
         </View>
         <Text
           style={{
@@ -38,7 +83,32 @@ export function Restaurants() {
           Restaurantes
         </Text>
 
-        <View style={styles.content}>
+        <SectionList style={styles.content}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/screen/restaurant01.png")}
+              style={styles.imageTitle}
+            />
+            <Text
+              style={styles.title}
+              onPress={() => navigation.navigate("Restaurant")}
+            >
+              Divina Pasta
+            </Text>
+          </View>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/screen/restaurant01.png")}
+              style={styles.imageTitle}
+            />
+            <Text
+              style={styles.title}
+              onPress={() => navigation.navigate("Restaurant")}
+            >
+              Mamma Mia
+            </Text>
+          </View>
+
           <View style={styles.imageContainer}>
             <Image
               source={require("../../../assets/screen/restaurant01.png")}
@@ -54,25 +124,11 @@ export function Restaurants() {
             <Text
               style={styles.title}
               onPress={() => navigation.navigate("Restaurant")}
-            >Mamma Mia</Text>
-
+            >
+              Mamma Mia
+            </Text>
           </View>
-
-          <View style={styles.imageContainer}>
-            <Image
-              source={require("../../../assets/screen/restaurant01.png")}
-              style={styles.imageTitle}
-            />
-            <Text style={styles.title}>Divina Pasta</Text>
-          </View>
-          <View style={styles.imageContainer}>
-            <Image
-              source={require("../../../assets/screen/restaurant01.png")}
-              style={styles.imageTitle}
-            />
-            <Text style={styles.title}>Mamma Mia</Text>
-          </View>
-        </View>
+        </SectionList>
       </SafeAreaView>
     </ScrollView>
   );
